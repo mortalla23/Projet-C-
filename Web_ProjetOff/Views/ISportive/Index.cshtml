@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Accueil";
+}
+
+<h1>Bienvenue Admin sur Web_ProjetOff</h1>
+<p>Ceci est la page d'accueil du service Admin.</p>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a class="btn btn-primary" asp-controller="ISportive" asp-action="AfficherTerrainsDisponibles">Afficher Terrains Disponibles</a>
+    <a class="btn btn-secondary" asp-controller="ISportive" asp-action="ReserverTerrain">Réserver Terrain</a>
+    <a class="btn btn-info" asp-controller="AutreController" asp-action="AutreAction">Autre Page</a>
+    <!-- Ajoutez autant de boutons-liens que nécessaire pour les différentes actions/pages -->
+</div>

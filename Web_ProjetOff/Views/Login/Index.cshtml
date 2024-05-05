@@ -1,0 +1,32 @@
+﻿@model Web_ProjetOff.ViewModels.UserViewModel
+@using ProjetOfficiel.Models
+
+@if (Model.Authentifie)
+{
+    <h3>
+        Vous êtes déjà authentifié avec l'ID :
+        @Model.ServiceAdmin.Id
+    </h3>
+    @Html.ActionLink("Voulez-vous vous déconnecter ?", "Deconnexion")
+}
+else
+{
+    <p>
+        Veuillez vous authentifier :
+    </p>
+    using (Html.BeginForm())
+    {
+        <div>
+            @Html.LabelFor(m => m.ServiceAdmin.Id)
+            @Html.TextBoxFor(m => m.ServiceAdmin.Id)
+            @Html.ValidationMessageFor(m => m.ServiceAdmin.Id)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.ServiceAdmin.Name)
+            @Html.TextBoxFor(m => m.ServiceAdmin.Name)
+            @Html.ValidationMessageFor(m => m.ServiceAdmin.Name)
+        </div>
+        <input type="submit" value="Se connecter">
+        <br />
+    }
+}

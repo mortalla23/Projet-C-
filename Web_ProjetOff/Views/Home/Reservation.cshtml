@@ -1,0 +1,77 @@
+﻿@model ProjetOfficiel.Models.Reservation
+
+@{
+    ViewData["Title"] = "Reservation";
+}<style>
+     html, body {
+         height: 100%;
+         margin: 0;
+         padding: 0;
+     }
+
+     .team-background {
+         background-image: url('https://th.bing.com/th/id/OIP.dZD5L-hj9K3ylkXnCTxbUAHaE5?rs=1&pid=ImgDetMain'); /* Replace with your image URL */
+         background-size: cover; /* Cover the entire page */
+         height: 100%;
+     }
+
+         .team-background,
+         .team-background h1,
+         .team-background h4,
+         .team-background p,
+         .team-background a { /* This will target all h1, h4, p tags and links within the .team-background class */
+             color: #ffffff; /* This is the color white */
+         }
+
+     /* If you want all text in the body to be white, not just within .team-background */
+     body {
+         color: #ffffff;
+     }
+
+</style>
+
+<body class="team-background">
+
+<h1>Reservation</h1>
+
+<h4>Reservation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AjoutReservation" method="POST" asp-controller="Home">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DateDebut" class="control-label"></label>
+                <input asp-for="DateDebut" class="form-control" />
+                <span asp-validation-for="DateDebut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateFin" class="control-label"></label>
+                <input asp-for="DateFin" class="form-control" />
+                <span asp-validation-for="DateFin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EquipeId" class="control-label"></label>
+                <input asp-for="EquipeId" class="form-control" />
+                <span asp-validation-for="EquipeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TerrainId" class="control-label"></label>
+                <input asp-for="TerrainId" class="form-control" />
+                <span asp-validation-for="TerrainId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,34 @@
+﻿
+
+@model ProjetOfficiel.Models.Reservation
+
+<h2>Réserver un Terrain</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EquipeId, "Équipe")
+        @Html.DropDownList("EquipeId", "Sélectionnez une équipe") <!-- Vous devez remplir cette liste dans le contrôleur -->
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TerrainId, "Terrain")
+        @Html.DropDownList("TerrainId", "Sélectionnez un terrain") <!-- Vous devez remplir cette liste dans le contrôleur -->
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateDebut)
+        @Html.TextBoxFor(model => model.DateDebut, "{0:yyyy-MM-dd}", new { type = "date" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateFin)
+        @Html.TextBoxFor(model => model.DateFin, "{0:yyyy-MM-dd}", new { type = "date" })
+    </div>
+
+    <input type="submit" value="Réserver" class="btn btn-default" />
+}
+
+
